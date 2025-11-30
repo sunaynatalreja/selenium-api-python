@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
       - name: api-tests
-        image: your-dockerhub-username/api-tests:latest
+        image: sunaynadockers/api-tests:latest
         imagePullPolicy: Always
         command: ["pytest"]
         args: ["--alluredir=/app/allure-results"]
