@@ -1,4 +1,4 @@
-FROM python:latest-slim
+FROM python:latest
 
 WORKDIR /app
 
