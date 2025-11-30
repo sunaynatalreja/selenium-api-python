@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: api-tests-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: api-tests
+        image: your-dockerhub-username/api-tests:latest
+        imagePullPolicy: Always
+        command: ["pytest"]
+        args: ["--alluredir=/app/allure-results"]
+      restartPolicy: Never
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 300
