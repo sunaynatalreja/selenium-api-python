@@ -31,11 +31,10 @@ jobs:
         run: |
           sudo snap install kubectl --classic
 
-      - name: Set up kubeconfig
+      - name: Configure kubeconfig
         run: |
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig
-        env:
-          KUBECONFIG: kubeconfig
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
 
       - name: Apply Kubernetes Job
         env:
